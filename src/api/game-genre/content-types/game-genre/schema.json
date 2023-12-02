@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_genres",
+  "info": {
+    "singularName": "game-genre",
+    "pluralName": "game-genres",
+    "displayName": "GameGenre",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "genre": {
+      "type": "string",
+      "required": true
+    },
+    "games": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::game.game",
+      "inversedBy": "game_genres"
+    }
+  }
+}

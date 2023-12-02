@@ -1,0 +1,138 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "singularName": "game",
+    "pluralName": "games",
+    "displayName": "Game",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "current_price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "last_price": {
+      "type": "decimal",
+      "min": 0
+    },
+    "image_url": {
+      "type": "string",
+      "required": true
+    },
+    "game_medias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game-media.game-media",
+      "mappedBy": "game"
+    },
+    "developer": {
+      "type": "string",
+      "required": true
+    },
+    "publisher": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "integer",
+      "required": true
+    },
+    "launch_date": {
+      "type": "date",
+      "required": true,
+      "default": "2000-02-01"
+    },
+    "metacritic_score": {
+      "type": "integer"
+    },
+    "game_genres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::game-genre.game-genre",
+      "mappedBy": "games"
+    },
+    "measurement": {
+      "type": "enumeration",
+      "enum": [
+        "TB",
+        "GB",
+        "MB",
+        "KB"
+      ],
+      "required": true,
+      "default": "KB"
+    },
+    "edition": {
+      "type": "enumeration",
+      "enum": [
+        "Standard edition",
+        "Complete edition",
+        "Premium edition"
+      ]
+    },
+    "game_recommended_spec": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::game-recommended-spec.game-recommended-spec",
+      "inversedBy": "game"
+    },
+    "game_minimum_spec": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::game-minimum-spec.game-minimum-spec",
+      "inversedBy": "game"
+    },
+    "classification": {
+      "type": "integer",
+      "required": true,
+      "max": 18,
+      "min": 0
+    },
+    "game_carousel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::game-carousel.game-carousel",
+      "inversedBy": "games"
+    },
+    "thumb": {
+      "type": "string",
+      "required": true
+    },
+    "short_description": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "highlighted": {
+      "type": "boolean",
+      "default": false
+    },
+    "popularity": {
+      "type": "float"
+    },
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "Windows",
+        "Mac",
+        "Linux",
+        "PlayStation",
+        "Xbox"
+      ],
+      "required": true
+    }
+  }
+}

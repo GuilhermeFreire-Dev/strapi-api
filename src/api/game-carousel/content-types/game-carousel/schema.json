@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_carousels",
+  "info": {
+    "singularName": "game-carousel",
+    "pluralName": "game-carousels",
+    "displayName": "GameCarousel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "games": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game.game",
+      "mappedBy": "game_carousel"
+    }
+  }
+}

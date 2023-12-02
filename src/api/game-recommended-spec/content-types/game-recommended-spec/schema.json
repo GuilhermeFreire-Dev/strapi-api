@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_recommended_specs",
+  "info": {
+    "singularName": "game-recommended-spec",
+    "pluralName": "game-recommended-specs",
+    "displayName": "GameRecommendedSpec"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "processor": {
+      "type": "string",
+      "required": true
+    },
+    "memory": {
+      "type": "string",
+      "required": true
+    },
+    "graphics": {
+      "type": "string",
+      "required": true
+    },
+    "so": {
+      "type": "string",
+      "required": true
+    },
+    "avaliable_space": {
+      "type": "integer",
+      "required": true
+    },
+    "measurement": {
+      "type": "enumeration",
+      "enum": [
+        "TB",
+        "GB",
+        "MB",
+        "KB"
+      ],
+      "default": "KB",
+      "required": true
+    },
+    "game": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::game.game",
+      "mappedBy": "game_recommended_spec"
+    }
+  }
+}

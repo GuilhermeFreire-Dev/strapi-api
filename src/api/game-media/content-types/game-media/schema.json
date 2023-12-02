@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_medias",
+  "info": {
+    "singularName": "game-media",
+    "pluralName": "game-medias",
+    "displayName": "GameMedia",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "game": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::game.game",
+      "inversedBy": "game_medias"
+    },
+    "description": {
+      "type": "string"
+    },
+    "media_url": {
+      "type": "string"
+    }
+  }
+}
